@@ -9,7 +9,10 @@ Relevant files:
     API, such as alarm status, certificate summary, and control status.
   * `get_certs.py`: Perform a back of the controller certificates, plus the
     root CA certificate, into the `backup_certs/` directory.
-  * `get_rtm_info.py`
+  * `get_rtm_info.py`: Collect miscellaneous facts from the real-time
+    monitoring API, tunnel statistics and control connections.
+  * `run_security_audit.py`: Creates a new user with permissions to view
+    the audit log, then collects the log entries into CSV format.
 
 **Note:** Check the `data_ref/` directory for example JSON responses from all
 API calls.
