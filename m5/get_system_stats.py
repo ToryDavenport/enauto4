@@ -17,7 +17,7 @@ def main():
     """
 
     # Create SD-WAN object to DevNet sandbox host
-    sdwan = CiscoSDWAN.get_instance_always_on()
+    sdwan = CiscoSDWAN.get_instance_reserved()
     with open("sys_stat_query.json", "r") as handle:
         query = json.load(handle)
 

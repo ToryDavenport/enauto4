@@ -23,6 +23,8 @@ def main():
         sdwan.get_device_vedges,
         sdwan.get_device_controllers,
     ]
+
+    # Run the device inventory API calls
     CiscoSDWAN.run_api_calls(api_calls)
 
 

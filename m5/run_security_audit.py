@@ -50,7 +50,7 @@ def main():
 
     # Create a new SD-WAN object to log in as the new user
     audit = CiscoSDWAN(
-        host="10.10.20.90", port=8443, username="jdoe", password=user_password
+        host="10.10.20.90", port=8443, username="jdoe", password="hello"
     )
 
     # Collect the audit log using the new user just created
@@ -65,9 +65,9 @@ def main():
         handle.write("dtg,device,user,msg\n")
         for log in audit_resp.json()["data"]:
             dtg = datetime.fromtimestamp(log["entry_time"] // 1000, timezone.utc)
-            device = log["logdeviceid"]
-            user = log["loguser"]
-            msg = log["logmessage"]
+            device = log.get("logdeviceid", "none")
+            user = log.get("loguser", "none")
+            msg = log.get("logmessage", "none")
             handle.write(f"{dtg},{device},{user},{msg}\n")
     print(f"Use 'column -s, -t {outfile} | less -S' to view from shell")
 
