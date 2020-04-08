@@ -32,8 +32,18 @@ def main():
     body = {
         "groupName": group_name,
         "tasks": [
-            {"feature": "Audit Log", "read": True, "enabled": True, "write": False},
-            {"feature": "Interface", "read": True, "enabled": True, "write": False},
+            {
+                "feature": "Audit Log",
+                "read": True,
+                "enabled": True,
+                "write": False,
+            },
+            {
+                "feature": "Interface",
+                "read": True,
+                "enabled": True,
+                "write": False,
+            },
             {"feature": "System", "read": True, "enabled": True, "write": False},
         ],
     }
@@ -50,7 +60,7 @@ def main():
 
     # Create a new SD-WAN object to log in as the new user
     audit = CiscoSDWAN(
-        host="10.10.20.90", port=8443, username="jdoe", password="hello"
+        host="10.10.20.90", port=8443, username="jdoe", password=user_password
     )
 
     # Collect the audit log using the new user just created
