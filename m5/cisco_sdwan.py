@@ -321,6 +321,10 @@ class CiscoSDWAN:
         attach_id = attach_resp.json()["id"]
         return self._wait_for_device_action_done(attach_id)
 
+    #
+    # Routing policy management
+    #
+
     def _add_policy(self, obj_type, name, entries):
         """
         Many policy objects follow a common data structure, so
@@ -371,12 +375,12 @@ class CiscoSDWAN:
         """
 
         # Build the properly-formed list of regions by expanding
-        # the region map into the proper 2-key dictionaryt format
+        # the region map into the proper 2-key dictionary format
         regions = []
         for region, site_id in region_map.items():
             regions.append({"name": region, "siteLists": site_id})
 
-        # Build the POSt request body with the required inputs
+        # Build the POST request body with the required inputs
         body = {
             "name": name,
             "type": "mesh",

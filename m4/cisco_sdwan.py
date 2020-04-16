@@ -270,6 +270,10 @@ class CiscoSDWAN:
         attach_id = attach_resp.json()["id"]
         return self._wait_for_device_action_done(attach_id)
 
+    #
+    # Routing policy management
+    #
+
     def _add_policy(self, obj_type, name, entries):
         """
         Many policy objects follow a common data structure, so
