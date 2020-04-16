@@ -421,7 +421,7 @@ class CiscoSDWAN:
             "isPolicyActivated": False,
         }
 
-        # Activation does not return anything
+        # Policy creation does not return anything; no assignment
         self._req(
             f"dataservice/template/policy/vsmart", method="post", jsonbody=body
         )
