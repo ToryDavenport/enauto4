@@ -428,7 +428,7 @@ class CiscoSDWAN:
 
         # Manually collect all vSmart policies, perform a simple
         # linear search to find the matching policy, then return it
-        policies = self._req(f"dataservice/template/policy/vsmart")
+        policies = self.get_policy_vsmart()
         for policy in policies.json()["data"]:
             if policy["policyName"] == name:
                 return policy
