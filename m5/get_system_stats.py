@@ -37,7 +37,7 @@ def main():
         for stat in sys_stat_resp.json()["data"]:
             dtg = datetime.fromtimestamp(stat["entry_time"] // 1000, timezone.utc)
             cpu = round(stat["cpu_user_new"], 2)
-            mem = round(stat["mem_util"] * 100, 2)
+            mem = round(stat["mem_util"], 2)
             handle.write(f"{dtg},{cpu},{mem}\n")
     print(f"Use 'column -s, -t {outfile} | less -S' to view from shell")
 

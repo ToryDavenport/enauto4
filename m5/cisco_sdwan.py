@@ -199,7 +199,8 @@ class CiscoSDWAN:
         Collect control connection state information for troubleshooting.
         """
         return self._req(
-            "dataservice/device/control/connections", params={"deviceId": device_id}
+            "dataservice/device/control/connections",
+            params={"deviceId": device_id},
         )
 
     def get_system_stats(self, query):
@@ -422,7 +423,10 @@ class CiscoSDWAN:
                                 {"field": "preferredColor", "value": pri_link},
                             ],
                         },
-                        {"type": "backupSlaPreferredColor", "parameter": alt_link},
+                        {
+                            "type": "backupSlaPreferredColor",
+                            "parameter": alt_link,
+                        },
                     ],
                 }
             ],
@@ -522,7 +526,9 @@ class CiscoSDWAN:
         """
         Adds a new user group given the properly-formatted dictionary body.
         """
-        return self._req("dataservice/admin/usergroup", method="post", jsonbody=body)
+        return self._req(
+            "dataservice/admin/usergroup", method="post", jsonbody=body
+        )
 
     def add_user(self, username, fullname, group_list):
         """
@@ -545,7 +551,9 @@ class CiscoSDWAN:
         """
         body = {"userName": username, "password": password}
         return self._req(
-            "dataservice/admin/user/password/{username}", method="put", jsonbody=body
+            "dataservice/admin/user/password/{username}",
+            method="put",
+            jsonbody=body,
         )
 
     #

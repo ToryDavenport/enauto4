@@ -26,7 +26,7 @@ def main():
         print("You are not currently authenticated as an 'admin' user")
         sys.exit(1)
 
-    # We have admin privileges create a new group named "audit" which has
+    # We have admin privileges; create a new group named "audit" which has
     # all device-level read/write permissions
     group_name = "audit"
     body = {

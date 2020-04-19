@@ -22,7 +22,6 @@
   },
   "fields": [
     "entry_time",
-    "count",
     "cpu_user_new",
     "mem_util"
   ],

@@ -30,7 +30,7 @@ def main():
             # Collect the tunnel statistics. This will list
             # the tunnels to all other vEdges and their performance data
             tunnel = sdwan.get_device_tunnel_statistics(vedge_id)
-            print(f" Tunnel statistics")
+            print(" Tunnel statistics")
             for item in tunnel.json()["data"]:
                 print(
                     f"  pkts tx/rx: {item['tx_pkts']}/{item['rx_pkts']}"
@@ -40,7 +40,7 @@ def main():
             # Collect the control connection details. This will list
             # connections to vManage and vSmart, and their status
             control = sdwan.get_device_control_connections(vedge_id)
-            print(f" Control connections")
+            print(" Control connections")
             for item in control.json()["data"]:
                 print(
                     f"  type: {item['peer-type']} proto: {item['protocol']}"
